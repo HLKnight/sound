@@ -14,7 +14,6 @@ int main(void)
 		// calculate fast dBs
 		displayBar("test.wav");
 		// send fast dBs to web (PHP program on www.cc.puv.fi)
-		
-		break;	// for testing, just run the loop once
+		sleep(1);	// for testing, just run the loop once
 	}
 }

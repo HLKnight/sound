@@ -1,9 +1,9 @@
-OBJ = main.o sound.o
+OBJ = main.o sound.o screen.o
 APPNAME = sound.a
 TAR = sound.tar
 
 $(APPNAME) : $(OBJ)
-	gcc -o $(APPNAME) $(OBJ)
+	gcc -o $(APPNAME) $(OBJ) -lm
 
 %.o : %.c
 	gcc -c -o $@ $<

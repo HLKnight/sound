@@ -1,5 +1,10 @@
+// #define DEBUG
+
 // header file for processing sound(WAV) file
 // define the WAV header
+
+#define SAMPLERATE 16000
+
 typedef struct
 {
 	char chunkID[4];		// "RIFF"
