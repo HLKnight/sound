@@ -3,6 +3,12 @@
 #include "screen.h"
 #include <stdio.h>
 
+void setColor(int color)
+{
+	printf("%c[1;%dm", ESC, color);
+	fflush(stdout);
+}
+
 void clearScreen(void)
 {
 	printf("%c[2J", ESC);
@@ -15,12 +21,19 @@ void gotoxy(int row, int col)
 	fflush(stdout);
 }
 
-void bar(int col, double dB)
+void bar(double dB, int col)
 {
 	int i;
-	for(i=0; i<dB/4; i++)
+	for(i=0; i<dB/RES; i++)
 	{
-		gotoxy(25-i, col+1);	// the first bar start from col=1
+		gotoxy(35-i, col+1);	// the first bar start from col=1
+#ifdef UNICODE		// if not defined
 		printf("%c", '*');
+#else
+		if(i<60/RES)setColor(GREEN);
+		else if(i<80/RES)setColor(YELLOW);
+		else setColor(RED);
+		printf("%s", BAR);
+#endif
 	}
 }

@@ -1,3 +1,4 @@
+#include "screen.h"
 #include "sound.h"
 #include <stdio.h>
 #include <math.h>
@@ -15,6 +16,7 @@ void displayWAVheader(char filename[])
 	}
 	fread(&myhdr, sizeof(WAVheader), 1, fp);
 	fclose(fp);
+#ifdef DEBUG
 	printID(myhdr.chunkID);
 	printf("chunk size: %d\n", myhdr.chunkSize);
 	printID(myhdr.format);
@@ -28,6 +30,20 @@ void displayWAVheader(char filename[])
 	printf("bits per sample: %d\n", myhdr.bitsPerSample);
 	printID(myhdr.subchunk2ID);
 	printf("subchunk 2 size: %d\n", myhdr.subchunk2Size);
+#else
+	gotoxy(1, 1);
+        setColor(WHITE);
+        printf("%s", filename);
+        gotoxy(1, 21);
+        setColor(GREEN);
+        printf("ch = %d", myhdr.numChannels);
+        gotoxy(1, 41);
+        setColor(CYAN);
+        printf("S.R. = %dHz", myhdr.sampleRate);
+        gotoxy(1, 61);
+        setColor(MAGENTA);
+        printf("Duration = %ds", myhdr.subchunk2Size/myhdr.byteRate);
+#endif
 }
 // function definition of displayBar()
 /*
@@ -57,7 +73,6 @@ void displayBar(char filename[])
 	we need to run a loop 80 times for 80 bars on the screen
 	and each iteration of this loop will calculates a RMS value of 200 samples.
 	*/
-	clearScreen();
 	for(i=0; i<80; i++)
 	{
 		for(j=0, sum_200=0.0; j<200; j++)

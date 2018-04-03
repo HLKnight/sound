@@ -1,19 +1,25 @@
-#include <stdio.h>
+// main file
 #include <stdlib.h>
+#include <signal.h>
 #include "sound.h"
 
 int main(void)
 {
+	int ret;
 	while(1)
 	{
 		// record 1s of sound into test.wav
-		system("arecord -q -r16000 -c1 -f S16_LE -d1 test.wav");
+		ret = system("arecord -q -r16000 -c1 -f S16_LE -d1 test.wav");
+		if(WIFSIGNALED(ret) && (WTERMSIG(ret)==SIGINT)) break;
+
+		clearScreen();
 		// open the wav file and read samples
 		// display necessary information (duration, WAV header)
 		displayWAVheader("test.wav");
 		// calculate fast dBs
 		displayBar("test.wav");
 		// send fast dBs to web (PHP program on www.cc.puv.fi)
-		sleep(1);	// for testing, just run the loop once
+		//break;	// for testing, just run the loop once
 	}
+	return 0;
 }

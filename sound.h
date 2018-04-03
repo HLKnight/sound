@@ -1,4 +1,4 @@
-// #define DEBUG
+//#define DEBUG
 
 // header file for processing sound(WAV) file
 // define the WAV header
