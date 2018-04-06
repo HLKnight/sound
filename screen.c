@@ -26,7 +26,7 @@ void bar(double dB, int col)
 	int i;
 	for(i=0; i<dB/RES; i++)
 	{
-		gotoxy(35-i, col+1);	// the first bar start from col=1
+		gotoxy(25-i, col+1);	// the first bar start from col=1
 #ifdef UNICODE		// if not defined
 		printf("%c", '*');
 #else
@@ -36,4 +36,5 @@ void bar(double dB, int col)
 		printf("%s", BAR);
 #endif
 	}
+	gotoxy(27, 1);
 }

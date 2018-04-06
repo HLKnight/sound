@@ -1,7 +1,7 @@
 #define ESC 0x1B
 #define BAR "\u2590"
 //#define UNICODE
-#define RES 3
+#define RES 4
 
 enum FGCOLORS {BLACK=30, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE};
 // function prototypes

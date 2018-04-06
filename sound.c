@@ -1,3 +1,4 @@
+#include "comm.h"
 #include "screen.h"
 #include "sound.h"
 #include <stdio.h>
@@ -88,6 +89,9 @@ void displayBar(char filename[])
 		bar(dB, i);
 #endif
 	}
+#ifdef COMM		// conditional compilation
+	sendToServer(rms_80);
+#endif
 }
 
 void printID(char id[])

@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <signal.h>
 #include "sound.h"
+#include "screen.h"
+#include "comm.h"
 
 int main(void)
 {
