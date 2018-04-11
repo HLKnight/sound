@@ -10,10 +10,21 @@ int main(void)
 	int ret;
 	while(1)
 	{
-		// record 1s of sound into test.wav
+		// record 1s sound into file "test.wav"
 		ret = system("arecord -q -r16000 -c1 -f S16_LE -d1 test.wav");
-		if(WIFSIGNALED(ret) && (WTERMSIG(ret)==SIGINT)) break;
+		// if pressing CTRL + C while running arecord
+		if(WIFSIGNALED(ret) && (WTERMSIG(ret)==SIGINT))
+		{
+			clearScreen();	// clear the screen
+			gotoxy(1,1);	// move the cursor to the top-left corner
+			break;			// break the while loop
+			// the program ends
+		}
 
+		/*
+			Clear the old informations displayed on the screen to replace with
+			new informations.
+		*/
 		clearScreen();
 		// open the wav file and read samples
 		// display necessary information (duration, WAV header)
