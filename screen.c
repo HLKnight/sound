@@ -1,4 +1,7 @@
-// contains screen manipulation functions, such as clearScreen(), gotoxy(), setColor(), etc
+/*
+	Contains screen manipulation functions, such as clearScreen(), gotoxy(),
+	setColor(), etc
+*/
 
 #include "screen.h"
 #include <stdio.h>
@@ -8,7 +11,8 @@
 	This function uses VT100 escape squence "\ESC[1;colorm" to change
 	display foreground color.
 	Input argument:
-		int color: color
+		int color:	color (BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN,
+					WHITE)
 	Return argument: none
 */
 void setColor(int color)
@@ -51,7 +55,7 @@ void gotoxy(int row, int col)
 	specific column. Resolution (RES) of the bar can be changed in "screen.h"
 	(the smaller RES is, the longer the bars are, prefertably RES = 4 or 5).
 	Input argument:
-		double dB: dB value calculated in another function
+		double dB: dB value calculated
 		int col: column nubmer (1 is left)
 	Return argument: none
 */

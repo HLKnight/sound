@@ -4,7 +4,14 @@
 #include <stdio.h>
 #include <math.h>
 
-// function definition of displayWAVheader()
+/*
+	Function definition of displayWAVheader()
+	This function read WAV file header and display most important information
+	Input arguments:
+		char filename[]:	File name string
+	Output arguments: none
+*/
+
 void displayWAVheader(char filename[])
 {
 	WAVheader myhdr;	// an instance of defined struct
@@ -15,13 +22,13 @@ void displayWAVheader(char filename[])
 		printf("ERROR of opening file!\n");
 		return;
 	}
-	fread(&myhdr, sizeof(WAVheader), 1, fp);
+	fread(&myhdr, sizeof(WAVheader), 1, fp);	// read the WAV file
 	fclose(fp);
-#ifdef DEBUG
-	printID(myhdr.chunkID);
+#ifdef DEBUG	// Debug mode
+	printID(myhdr.chunkID);		// "RIFF"
 	printf("chunk size: %d\n", myhdr.chunkSize);
-	printID(myhdr.format);
-	printID(myhdr.subchunk1ID);
+	printID(myhdr.format);		// "WAVE"
+	printID(myhdr.subchunk1ID);	// "fmt "
 	printf("subchuck 1 size: %d\n", myhdr.subchunk1Size);
 	printf("audio format: %d\n", myhdr.audioFormat);
 	printf("number of channels: %d\n", myhdr.numChannels);
@@ -29,7 +36,7 @@ void displayWAVheader(char filename[])
 	printf("byte rate: %d\n", myhdr.byteRate);
 	printf("block align: %d\n", myhdr.blockAlign);
 	printf("bits per sample: %d\n", myhdr.bitsPerSample);
-	printID(myhdr.subchunk2ID);
+	printID(myhdr.subchunk2ID);	// "data"
 	printf("subchunk 2 size: %d\n", myhdr.subchunk2Size);
 #else
 	gotoxy(1, 1);
@@ -46,8 +53,8 @@ void displayWAVheader(char filename[])
         printf("Duration = %ds", myhdr.subchunk2Size/myhdr.byteRate);
 #endif
 }
-// function definition of displayBar()
 /*
+	Function definition of displayBar()
 	This function opens the "test.wav" file and reads the second part (data) of the file.
 	The samples should be in S16_LE format and there are 16000 of them.
 	The function processes every 200 samples and calculate their RMS value and
@@ -86,13 +93,21 @@ void displayBar(char filename[])
 #ifdef DEBUG
 		printf("RMS[%d] = %10.4f = %10.4f\n", i, rms_80[i], dB);
 #else
-		bar(dB, i);
+		bar(dB, i);	// print out on the screen as bars
 #endif
 	}
 #ifdef COMM		// conditional compilation
 	sendToServer(rms_80);
 #endif
 }
+
+/*
+	Function definition of printID()
+	This function uses prints out 4 bytes in an ID field as characters
+	Input argument:
+		char id[]:	array of 4 values
+	Return argument: none
+*/
 
 void printID(char id[])
 {

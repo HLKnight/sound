@@ -4,9 +4,13 @@
 #include <math.h>
 
 /*
+	Function definition of sendToServer()
 	This function takes in RMS values of 1 second, each is calculated by 16000/80 = 200
 	samples, but the function will recalculate 8 pieces of RMS values, each
 	corresponding to 2000 samples or 125ms of sound.
+	Input arguments:
+		double rms[]:	RMS values
+	Output arguments: none
 */
 
 void sendToServer(double rms[])
