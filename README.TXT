@@ -11,6 +11,12 @@ In addition, 8 pieces of RMS value every second are sent to PHP program.
 1. Configuration instructions
 2. Installation instructions
 3. Operating instructions
+4. File manifest
+5. Copyright and license
+6. Contact information
+7. Known bugs
+8. Troubleshooting
+9. Changelog
 
 # -----------------------------------------------------------------------------
 
@@ -67,6 +73,9 @@ In addition, 8 pieces of RMS value every second are sent to PHP program.
 	2.2. Install
 	
 		<1> Run makefile by entering command "make".
+		
+		<2> Setup PHP server with file "sound.php". (Instruction may be found
+			on the Internet)
 
 # -----------------------------------------------------------------------------
 
@@ -76,4 +85,71 @@ In addition, 8 pieces of RMS value every second are sent to PHP program.
 	
 	Exit the program by pressing "Ctrl + C".
 	
+# -----------------------------------------------------------------------------
+
+4. File manifest
+
+	comm.c
+	comm.h
+	main.c
+	makefile
+	screen.c
+	screen.h
+	sound.c
+	sound.h
+	sound.php
+	
+# -----------------------------------------------------------------------------
+
+5. Copyright and license
+
+	This project source code is (C)2018 Gao Chao VAMK and distributed under
+	copyleft FOSS license.
+	
+# -----------------------------------------------------------------------------
+
+6. Contact information
+
+	Chao Gao, Doctor of Science, Principal Lecturer
+		
+		Vaasa University of Applied Sciences
+		School of Technology
+		Information Technology
+		Wolffintie 30
+		65200 VAASA
+		FINLAND
+		
+		Phone: +358 207 663 322
+		Email: gc@vamk.fi
+		
+	Nguyen Nhat Minh, student
+	
+		Vaasa University of Applied Sciences
+		School of Technology
+		Information Technology
+		Wolffintie 30
+		65200 VAASA
+		FINLAND
+		
+		Phone: +358 418 097 204
+		Email: e1700681@edu.vamk.fi
+		
+# -----------------------------------------------------------------------------
+
+7. Known bugs
+
+	<empty>
+	
+# -----------------------------------------------------------------------------
+
+8. Troubleshooting
+
+	<empty>
+	
+# -----------------------------------------------------------------------------
+
+9. Changelog
+
+	<empty>
+
 # -----------------------------------------------------------------------------
