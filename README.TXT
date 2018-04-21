@@ -120,7 +120,7 @@ In addition, 8 pieces of RMS value every second are sent to PHP program.
 		FINLAND
 		
 		Phone: +358 207 663 322
-		Email: gc@vamk.fi
+		Email: gao.chao@vamk.fi
 		
 	Nguyen Nhat Minh, student
 	
